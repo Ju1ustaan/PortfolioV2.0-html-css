@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+
+html,body {
+    height: 100vh;
+    background: var(--bg-image-light) no-repeat bottom;
+    background-size: cover;
+    font-family: 'Montserrat Alternates', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+body{
+    background: transparent;
+}
+:root{
+    --green: #159386;
+    --black: #404040;
+    --blue: #49a5f0;
+    --yellow: #c4f54f;
+    --bg-image-light: url('./images/cool__bg__day.jpg');
+    --bg-image-night: url('./images/cool__bg__night.jpg');
+    --btn-gradient: linear-gradient(135deg, rgba(196, 245, 79, 1) 2%, rgba(21, 147, 134, 1) 56%);
+    --btn-gradient-night: linear-gradient(135deg, rgba(117,67,156,1) 10%, rgba(21,147,134,1) 59%);
+    --purple: #724cab;
+    --white: #ffffff;
+
+
+    --accent: var(--green);
+    --color-link:var(--blue);
+    --about-text: var(--black);
+    --main-btn: var(--yellow);
+    --main-btn-gradient: var(--btn-gradient)
+}
+.night {
+    background: var(--bg-image-night) no-repeat bottom;
+    background-size:  cover;
+    --color-link:var(--purple);
+    --about-text: var(--white);
+    --main-btn-gradient: var(--btn-gradient-night)
+}
+
+
+/* кнопка в header  */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 40px;
+    width: 40px;
+    left: 0px;
+    bottom: 4px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    box-shadow: 0 0px 15px #2020203d;
+    background: white url('https://i.ibb.co/FxzBYR9/night.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+input:checked+.slider {
+    background-color: #2196f3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
+    background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+/* header section  */
+
+.container {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.header {
+    padding: .5em 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+
+.header__wrapper {
+    position: relative;
+    padding: .5em;
+    border: 5px solid #ffffff;
+    border-radius: 54px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__wrapper::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    border-radius: 54px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    opacity: .5;
+    z-index: -1;
+}
+
+.header__logo {
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--color-link);
+    text-shadow: -1px 1px var(--about-text);
+    -webkit-text-stroke: .1px #ffffff;
+}
+
+.header__link {
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 0.15px;
+    color: var(--color-link);
+    text-shadow: -1px 1px var(--about-text);
+    transition: .5s ease;
+}
+
+.header__link:not(:last-child) {
+    margin-right: 1em;
+}
+
+.header__link:hover {
+    color: var(--accent);
+    text-shadow: -1px 1px 3px #ffffff,
+        -1.5px 1.5px 3px #ffffff,
+        -2px 2px 3px #ffffff,
+        -2.5px 2.5px 3px #ffffff;
+}
+
+
+/* section main  */
+
+.main__title {
+    color: var(--accent);
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    font-weight: 300;
+    min-width: 1200px;
+}
+
+.main__text {
+    color: var(--accent);
+    font-size: 2em;
+    margin-bottom: 1em;
+    font-weight: 700;
+    -webkit-text-stroke: 1px #ffffff;
+}
+
+.main__btn {
+    display: block;
+    width: 144px;
+    border-radius: 24px;
+    height: 48px;
+    background: var(--main-btn-gradient);
+    color: var(--main-btn);
+    font-size: 1em;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 700;
+    transition: .1s ease;
+}
+
+.main__btn:hover {
+    border: 3px solid #ffffff;
+    color: #ffffff;
+}
+
+
+/* section about  */
+
+.about__wrapper {
+    padding: 3em 0;
+    text-align: center;
+}
+
+.about__title {
+    -webkit-text-stroke: 1px #ffffff;
+    color: var(--accent);
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.about__text {
+    color: var(--about-text);
+    font-size: 1em;
+    margin-bottom: 1em;
+}
+
+
+
+/* section project  */
+
+.project__title{
+    font-size: 1.5em;
+    margin-bottom: .5em;
+    font-weight: 700;
+    -webkit-text-stroke: 1px #ffffff;
+    color: var(--accent);
+}
+.projects__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: .5em;
+}
+
+.projects__card {
+    overflow: hidden;
+    background-color: #e0eaf8;
+    border-radius: 24px;
+    opacity: 0.6;
+    transition: 1s;
+    
+}
+
+
+.projects__card:hover {
+    animation-duration: 1s;
+    transform: scale(1.2);
+    opacity: 1;
+    z-index: 100;
+    box-shadow: -1px 1px 3px #ffffff,
+    1px 1px 3px #ffffff,
+    -2px 2px 3px #ffffff,
+    -2px 2px 3px #ffffff;
+}
+
+.projects__image {
+    width: 100%;
+}
+
+.projects__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.projects__text {
+    text-align: center;
+    font-size: 1em;
+    margin: .5em 0;
+}
+
+.projects__btn {
+    width: 100%;
+    height: 36px;
+    font-size: .75em;
+    background-color: var(--accent)  ;
+}
+
+.projects__btn:hover {
+    color: #ffffff;
+    text-shadow: -1px 1px 3px #ffffff,
+        -1.5px 1.5px 3px #ffffff,
+        -2px 2px 3px #ffffff;
+}
+
